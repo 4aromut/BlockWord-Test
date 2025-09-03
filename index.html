@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
 		<title>BlockWord</title>
+		<script src="https://telegram.org/js/telegram-web-app.js"></script>
 		<style>
 html, body, #canvas {
 	margin: 0;
@@ -109,7 +110,16 @@ body {
 			<progress id="status-progress"></progress>
 			<div id="status-notice"></div>
 		</div>
-
+		<script>
+			if (window.Telegram && Telegram.WebApp) {
+			  Telegram.WebApp.ready();
+			  Telegram.WebApp.expand();
+			  console.log("✅ Telegram Mini App ready");
+			} else {
+			  console.log("⚠️ Telegram WebApp API not available");
+			}
+		  </script>
+		  
 		<script src="index.js"></script>
 		<script>
 const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":6680320,"index.wasm":43699190},"focusCanvas":true,"gdextensionLibs":[],"serviceWorker":"index.service.worker.js"};
